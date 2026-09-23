@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import propertySlice from "./Property/property-slice.js";
-import propertyDetailsSlice from "./PropertyDetails/propertyDetails-Slice.js";
+import propertyDetailsSlice from "./PropertyDetails/propertyDetails-slice.js";
 import userSlice from "./User/user-slice.js";
 import bookingSlice from "./Booking/booking-slice.js";
 import accomodationSlice from "./Accomodation/Accomodation-slice.js";
