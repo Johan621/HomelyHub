@@ -80,7 +80,7 @@ const verifyPayment = async(req,res)=>{
 //get my bookings
 const getUserBookings = async(req,res)=>{
     try{
-        const bookings = await Booking.find({user:req.user._id});
+        const bookings = await Booking.find({user:req.user._id}).populate("property");
 
         res.status(200).json({
             status:"success",
@@ -101,7 +101,7 @@ const getUserBookings = async(req,res)=>{
 // /:id
 const getBookingDetails = async(req,res)=>{
     try{
-        const bookings = await Booking.findById(req.params.bookingId)
+        const bookings = await Booking.findById(req.params.bookingId).populate("property");
         
         
         res.status(200).json({
