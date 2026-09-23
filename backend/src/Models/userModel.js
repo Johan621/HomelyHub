@@ -63,7 +63,7 @@ const userSchema = new mongoose.Schema(
             select:false,
             index:true
         },
-        passwordRestExpires:{
+        passwordResetExpires:{
             type:Date,
             select:false
         },
@@ -78,7 +78,7 @@ userSchema.set("toJSON",{
         delete ret.password;
         delete ret.passwordConfirm;
         delete ret.passwordResetToken;
-        delete ret.passwordRestExpires;
+        delete ret.passwordResetExpires;
         delete ret.__v;
         return ret;
     }
@@ -102,7 +102,7 @@ userSchema.methods.correctPassword = async function(candidatePassword, userPassw
 }
 
 //
-userSchema.methods.changePasswordAfter = function(JWTTimestamp){
+userSchema.methods.changedPasswordAfter = function(JWTTimestamp){
     if(this.passwordChangedAt){
         const changedTimestamp = parseInt(
             this.passwordChangedAt.getTime()/1000, 
