@@ -1,4 +1,4 @@
-import { propertyDetailsAction } from "./propertyDetails-Slice";
+import { propertyDetailsAction } from "./propertyDetails-slice.js";
 import { axiosInstance } from "../../utils/axios";
 
 //fetch details of one specific property using its id
