@@ -17,7 +17,7 @@ const MyBookings = () => {
 
   useEffect(() => {
     //fetch the user bookings here and set them above.
-    dispatch(fetchBookingDetails())
+    dispatch(fetchUserBookings());
   }, [dispatch]);
 
   console.log(bookings);
