@@ -14,6 +14,11 @@ const destinations = [
     className: "destination-goa",
   },
   {
+    name: "Chikmagalur",
+    subtitle: "Coffee estate stays",
+    className: "destination-chikmagalur",
+  },
+  {
     name: "Manali",
     subtitle: "Mountain stays",
     className: "destination-manali",

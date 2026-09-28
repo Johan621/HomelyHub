@@ -767,6 +767,9 @@ footer {
   background-image: url("/assets/image1.jpeg");
 }
 
+.destination-chikmagalur {
+  background-image: url("/assets/image2.jpeg");
+}
 
 .destination-manali {
   background-image: url("/assets/image3.jpeg");
@@ -875,4 +878,39 @@ footer {
     "wght" 600,
     "GRAD" 0,
     "opsz" 24;
+}
+
+
+
+.profile-dropdown {
+  right: 0;
+  max-width: calc(100vw - 2rem);
+  z-index: 1000;
+}
+
+.header {
+  overflow: visible;
+}
+
+.profile-menu {
+  flex-shrink: 0;
+}
+
+.header-actions {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .profile-dropdown {
+    right: 0;
+    min-width: 10rem;
+  }
+
+  .header-actions {
+    gap: 0.35rem;
+  }
+
+  .ai-trip-link {
+    padding: 0.65rem;
+  }
 }
