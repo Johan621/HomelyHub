@@ -11,6 +11,27 @@ import LoadingSpinner from "../LoadingSpinner";
 import { getPropertyDetails } from "../../store/PropertyDetails/propertyDetails-action";
 import { useDispatch, useSelector } from "react-redux";
 
+const PropertyDetailsSkeleton = () => {
+  return (
+    <div className="property-details-skeleton">
+      <div className="skeleton property-details-title" />
+      <div className="skeleton property-details-location" />
+      <div className="skeleton property-details-image" />
+
+      <div className="property-details-skeleton-columns">
+        <div>
+          <div className="skeleton skeleton-line large" />
+          <div className="skeleton skeleton-line medium" />
+          <div className="skeleton skeleton-line medium" />
+          <div className="skeleton skeleton-line small" />
+        </div>
+
+        <div className="skeleton property-details-payment" />
+      </div>
+    </div>
+  );
+};
+
 const PropertyListing = () => {
 
   const { id } = useParams();
@@ -24,12 +45,9 @@ const PropertyListing = () => {
     dispatch(getPropertyDetails(id))
   },[dispatch, id]);
 
-  if (loading || !propertydetails)
-    return (
-      <div className="row justify-content-around mt-5">
-        <LoadingSpinner />
-      </div>
-    );
+  if (loading || !propertydetails) {
+    return <PropertyDetailsSkeleton />;
+  }
 
   const {
     propertyName,

@@ -315,3 +315,58 @@ input:focus {
 .searchDate:hover::placeholder {
   color: black;
 }
+
+.property-details-skeleton {
+  width: min(92%, 1200px);
+  margin: 3rem auto;
+}
+
+.property-details-title {
+  width: 45%;
+  height: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.property-details-location {
+  width: 30%;
+  height: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 999px;
+}
+
+.property-details-image {
+  width: 100%;
+  height: 25rem;
+  border-radius: 1.25rem;
+}
+
+.property-details-skeleton-columns {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.property-details-payment {
+  min-height: 18rem;
+  border-radius: 1.25rem;
+}
+
+@media (max-width: 700px) {
+  .property-details-title {
+    width: 80%;
+  }
+
+  .property-details-location {
+    width: 60%;
+  }
+
+  .property-details-image {
+    height: 18rem;
+  }
+
+  .property-details-skeleton-columns {
+    grid-template-columns: 1fr;
+  }
+}

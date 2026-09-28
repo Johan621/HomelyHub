@@ -1,0 +1,51 @@
+:root {
+  color: #17221d;
+  background: #eef7f1;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #eef7f1;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(174, 231, 193, 0.32),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 92% 25%,
+      rgba(213, 239, 220, 0.45),
+      transparent 30rem
+    ),
+    linear-gradient(135deg, #f8fcf9 0%, #eef7f1 48%, #f8fbf9 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(14, 139, 83, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 139, 83, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: #b7f0c9;
+  color: #12462e;
+}

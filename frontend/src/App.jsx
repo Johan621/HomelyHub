@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -24,12 +25,27 @@ import UpdatePassword from "./components/user/UpdatePassword";
 import Payment from "./components/payment/Payment";
 import NotFound from "./components/NotFound";
 import AiTripPlanner from "./components/aiTripPlanner/AiTripPlanner";
+import Favorites from "./components/favorites/Favorites";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { userActions } from "./store/User/user-slice.js";
 import { currentUser } from "./store/User/user-action.js";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   
@@ -50,6 +66,7 @@ function App() {
     <div className="App">
       <Toaster position="bottom-center" reverseOrder={false} />
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Main />}>
             <Route index element={<PropertyList />} />
@@ -58,6 +75,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="favorites" element={<Favorites />} />
             <Route
               path="editprofile"
               element={user ? <EditProfile /> : <Navigate to="/login" />}

@@ -36,6 +36,7 @@ const Card = ({ id, image, name, address, price }) => {
     );
 
     setIsFavorite(updatedFavorites.includes(id));
+    window.dispatchEvent(new Event("favorites-updated"));
   };
 
   return (
@@ -81,6 +82,24 @@ const Card = ({ id, image, name, address, price }) => {
   );
 };
 
+const PropertySkeletons = () => {
+  return (
+    <div className="skeleton-grid" aria-label="Loading properties">
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+        <div className="property-skeleton" key={item}>
+          <div className="skeleton skeleton-property-image" />
+
+          <div className="skeleton-property-content">
+            <div className="skeleton skeleton-line large" />
+            <div className="skeleton skeleton-line medium" />
+            <div className="skeleton skeleton-line small" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const PropertyList = () => {
   const [currentPage, setCurrentPage] = useState({ page: 1 });
 
@@ -115,7 +134,7 @@ const PropertyList = () => {
   }, [properties]);
 
   if (loading) {
-    return <p className="not_found">Loading properties...</p>;
+    return <PropertySkeletons />;
   }
 
   if (error) {

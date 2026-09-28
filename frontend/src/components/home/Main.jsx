@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { scrollToTop } from "../../utils/scroll";
+import { scrollToListings } from "../../utils/scroll";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -32,23 +35,51 @@ const destinations = [
 
 const Main = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
 
-  const handleDestinationSearch = (destination) => {
-    dispatch(
-      propertyAction.updateSearchParams({
-        city: destination,
-        page: 1,
-      })
-    );
+  useEffect(() => {
+    scrollToTop();
+  }, [location.pathname]);
 
-    dispatch(getAllProperties());
+  const scrollToListings = () => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const listings = document.getElementById("property-listings");
 
-    setTimeout(() => {
-      document
-        .getElementById("property-listings")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+        if (!listings) return;
+
+        const header = document.querySelector(".header");
+        const headerHeight = header?.getBoundingClientRect().height || 0;
+        const extraSpacing = 24;
+
+        const listingsPosition =
+          listings.getBoundingClientRect().top +
+          window.scrollY -
+          headerHeight -
+          extraSpacing;
+
+        window.scrollTo({
+          top: Math.max(0, listingsPosition),
+          behavior: "smooth",
+        });
+      });
+    });
   };
+
+const handleDestinationSearch = async (destination) => {
+  dispatch(
+    propertyAction.updateSearchParams({
+      city: destination,
+      page: 1,
+    })
+  );
+
+  await dispatch(getAllProperties());
+
+  setTimeout(() => {
+    scrollToListings();
+  }, 150);
+};
 
   return (
     <div className="home-layout">
@@ -65,7 +96,7 @@ const Main = () => {
           </p>
 
           <div className="hero-search">
-            <Search />
+            <Search onSearchComplete={scrollToListings} />
           </div>
         </div>
       </section>

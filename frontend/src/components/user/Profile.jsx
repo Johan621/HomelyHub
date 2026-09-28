@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ProgressSteps from "../ProgressSteps";
 import { Link } from "react-router-dom";
 import "../../css/Profile.css";
@@ -7,54 +7,73 @@ import LoadingSpinner from "../LoadingSpinner";
 import moment from "moment";
 
 const Profile = () => {
-  
   const { user, loading } = useSelector((state) => state.user);
 
   return (
     <>
       <ProgressSteps profile />
 
-      <div className="row justify-content-around mt-5 ">
+      <div className="profile-page">
         {loading && <LoadingSpinner />}
+
         {user && !loading && (
-          <div className="col-6 col-md-6 profile object-fit-cover">
-            <div className="avatars">
-              <figure className="avatar-profile text-center">
-                <img
-                  className="rounded-circle w-100 h-100 "
-                  src={user.avatar.url}
-                  alt="avatar"
-                />
-              </figure>
-              <h3>Welcome {user.name}!</h3>
-            </div>
-            <div className="userinfo">
-              <h4>Full Name</h4>
-              <p>{user.name}</p>
+          <section className="profile-card">
+            <aside className="profile-sidebar">
+              <div className="profile-avatar">
+                <img src={user.avatar?.url} alt={`${user.name} avatar`} />
+              </div>
 
-              <h4>Email Address</h4>
-              <p>{user.email}</p>
+              <h2>Welcome, {user.name}</h2>
+              <p>Your HomelyHub profile</p>
+            </aside>
 
-              <h4>Joined On</h4>
-              <p>{moment(user.createdAt).format("MMMM Do YYYY")}</p>
+            <div className="profile-content">
+              <p className="profile-eyebrow">ACCOUNT OVERVIEW</p>
+              <h1>Your profile</h1>
 
-              <div className="buttons">
+              <div className="profile-info-grid">
+                <div className="profile-info-item">
+                  <span>Full name</span>
+                  <strong>{user.name}</strong>
+                </div>
+
+                <div className="profile-info-item">
+                  <span>Email address</span>
+                  <strong>{user.email}</strong>
+                </div>
+
+                <div className="profile-info-item">
+                  <span>Joined on</span>
+                  <strong>
+                    {moment(user.createdAt).format("MMMM Do YYYY")}
+                  </strong>
+                </div>
+
+                <div className="profile-info-item">
+                  <span>Phone number</span>
+                  <strong>{user.phoneNumber || "Not provided"}</strong>
+                </div>
+              </div>
+
+              <div className="profile-actions">
                 <Link
                   to="/editprofile"
-                  id="edit_profile"
-                  className="btn btn-block my-5"
+                  className="profile-action-button"
                 >
-                  Edit Profile
+                  <span className="material-symbols-outlined">edit</span>
+                  Edit profile
                 </Link>
+
                 <Link
                   to="/user/updatepassword"
-                  className="btn btn-block my-5 mx-4"
+                  className="profile-action-button secondary"
                 >
-                  Change Password
+                  <span className="material-symbols-outlined">lock</span>
+                  Change password
                 </Link>
               </div>
             </div>
-          </div>
+          </section>
         )}
       </div>
     </>

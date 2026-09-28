@@ -84,6 +84,14 @@ const Header = () => {
                   My Account
                 </Link>
               </li>
+
+              <li>
+                <Link className="dropdown-item" to="/favorites">
+                  <span className="material-symbols-outlined">favorite</span>
+                  Favorites
+                </Link>
+              </li>
+
               <li>
                 <button
                   className="dropdown-item"

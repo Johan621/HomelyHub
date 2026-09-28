@@ -78,8 +78,8 @@ const EditProfile = () => {
 
   return (
     <Fragment>
-      <div className="row wrapper ">
-        <div className="col-10 col-lg-5 updateprofile">
+      <div className="profile-page">
+        <div className="profile-edit-card">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -87,7 +87,8 @@ const EditProfile = () => {
             }}
             encType="multipart/form-data"
           >
-            <h1 className="mt-2 mb-5">Update Profile</h1>
+            <p className="profile-eyebrow">ACCOUNT SETTINGS</p>
+            <h1>Update your profile</h1>
 
             <form.Field name="name">
               {(field) => (
