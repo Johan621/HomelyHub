@@ -639,10 +639,6 @@ git push origin feature/your-feature-name
 
 ---
 
-## License
-
-This project does not currently specify a license.
-
 ---
 
 ## Author
