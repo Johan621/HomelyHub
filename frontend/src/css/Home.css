@@ -555,3 +555,115 @@ footer {
     height: 17rem;
   }
 }
+
+
+
+/* Property card image controls */
+
+.property-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.property-image-wrapper > a {
+  display: block;
+}
+
+.property-image-wrapper img {
+  display: block;
+  width: 100%;
+  height: 17rem;
+  object-fit: cover;
+}
+
+.property-badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #17613f;
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.favorite-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #355044;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+  background: #fff1f3;
+  color: #e04d68;
+}
+
+.favorite-button .material-symbols-outlined {
+  font-size: 1.3rem;
+}
+
+.property-card-content {
+  display: block;
+  padding: 0.8rem 1rem 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.property-card-content:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.property-card-content h4 {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.property-card-content h6 {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 0 0.7rem;
+  overflow: hidden;
+  color: #718078;
+  font-size: 0.82rem;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.property-card-content p {
+  margin: 0;
+  color: #718078;
+  font-size: 0.85rem;
+}
+
+.property-card-content .price {
+  color: #17221d;
+  font-size: 1rem;
+  font-weight: 700;
+}

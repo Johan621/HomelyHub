@@ -10,25 +10,37 @@ import { getAllProperties } from "../../store/Property/property-action.js";
 const Card = ({ id, image, name, address, price }) => {
   return (
     <figure className="property">
-      <Link to={`/propertylist/${id}`}>
-        <img src={image} alt="Propertyimg" />
-      </Link>
-      <h4>{name}</h4>
-      <figcaption>
-        <main className="propertydetails">
-          <h5>{name}</h5>
+      <div className="property-image-wrapper">
+        <Link to={`/propertylist/${id}`}>
+          <img src={image} alt={name} />
+        </Link>
 
-          <h6>
-            <span className="material-symbols-outlined houseicon">
-              home_pin
-            </span>
-            {address}
-          </h6>
-          <p>
-            <span className="price"> ₹{price}</span> per night
-          </p>
-        </main>
-      </figcaption>
+        <span className="property-badge">Featured</span>
+
+        <button
+          type="button"
+          className="favorite-button"
+          aria-label={`Add ${name} to favorites`}
+          onClick={(event) => event.stopPropagation()}
+        >
+          <span className="material-symbols-outlined">favorite</span>
+        </button>
+      </div>
+
+      <Link to={`/propertylist/${id}`} className="property-card-content">
+        <h4>{name}</h4>
+
+        <h6>
+          <span className="material-symbols-outlined houseicon">
+            location_on
+          </span>
+          {address}
+        </h6>
+
+        <p>
+          <span className="price">₹{price}</span> per night
+        </p>
+      </Link>
     </figure>
   );
 };
