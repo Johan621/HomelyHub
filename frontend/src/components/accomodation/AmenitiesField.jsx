@@ -17,8 +17,8 @@ const initialamenities = [
   {
     id: "washingmachine",
     value: "Washing Machine",
-    icon: "local_laundry_service",
     checked: false,
+    icon: "local_laundry_service",
   },
   { id: "tv", value: "Tv", checked: false, icon: "tv" },
   { id: "pool", value: "Pool", checked: false, icon: "pool" },
@@ -26,12 +26,14 @@ const initialamenities = [
 ];
 
 const AmenitiesField = ({ form }) => {
+  const Field = form.Field;
+
   return (
     <div className="perks-container">
       <h4 className="perks-header">Amenities</h4>
       <p className="form-paras">Select perks</p>
 
-      <form.Field name="amenities">
+      <Field name="amenities">
         {(field) => (
           <div className="perks row">
             {initialamenities.map((amenity) => (
@@ -41,7 +43,7 @@ const AmenitiesField = ({ form }) => {
               >
                 <input
                   type="checkbox"
-                  checked={field.state.value.some(
+                  checked={(field.state.value || []).some(
                     (item) => item.name === amenity.value
                   )}
                   onChange={(e) => {
@@ -62,15 +64,17 @@ const AmenitiesField = ({ form }) => {
                     }
                   }}
                 />
+
                 <span className="material-symbols-outlined">
                   {amenity.icon}
                 </span>
+
                 <span>{amenity.value}</span>
               </div>
             ))}
           </div>
         )}
-      </form.Field>
+      </Field>
     </div>
   );
 };

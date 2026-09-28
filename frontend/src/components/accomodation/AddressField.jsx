@@ -1,13 +1,18 @@
 import React from "react";
 
 export const AddressField = ({ form }) => {
+  const Field = form.Field;
+
   return (
-    <div className="address-container ">
+    <div className="address-container">
       <h4 className="address-header">Address</h4>
+
       <label className="form-labels">Address to your place</label>
-      <br></br>
+
+      <br />
+
       <div className="address-fields">
-        <form.Field name="address.area">
+        <Field name="address.area">
           {(field) => (
             <input
               className="area"
@@ -18,44 +23,46 @@ export const AddressField = ({ form }) => {
               required
             />
           )}
-        </form.Field>
+        </Field>
 
-        <form.Field name="address.city">
+        <Field name="address.city">
           {(field) => (
             <input
               className="city"
               type="text"
               placeholder="City"
-              required
               value={field.state.value}
               onChange={(e) => field.handleChange(e.target.value)}
+              required
             />
           )}
-        </form.Field>
-        <form.Field name="address.state">
+        </Field>
+
+        <Field name="address.state">
           {(field) => (
             <input
               className="state"
               type="text"
               placeholder="State"
-              required
               value={field.state.value}
               onChange={(e) => field.handleChange(e.target.value)}
+              required
             />
           )}
-        </form.Field>
-        <form.Field name="address.pincode">
+        </Field>
+
+        <Field name="address.pincode">
           {(field) => (
             <input
               className="pincode"
               type="number"
               placeholder="Pincode"
-              required
               value={field.state.value || ""}
               onChange={(e) => field.handleChange(e.target.value)}
+              required
             />
           )}
-        </form.Field>
+        </Field>
       </div>
     </div>
   );

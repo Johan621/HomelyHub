@@ -4,7 +4,6 @@ import {
   Routes,
   Route,
   Navigate,
-  useActionData,
 } from "react-router-dom";
 
 import PropertyList from "./components/home/PropertyList";
@@ -17,7 +16,6 @@ import Profile from "./components/user/Profile";
 import EditProfile from "./components/user/EditProfile";
 import MyBookings from "./components/myBookings/MyBookings";
 import BookingDetails from "./components/myBookings/BookingDetails";
-import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 import AccomodationForm from "./components/accomodation/AccomodationForm";
 import ForgetPassword from "./components/user/ForgetPassword";
@@ -31,7 +29,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { userActions } from "./store/User/user-slice.js";
 import { currentUser } from "./store/User/user-action.js";
-import { current } from "@reduxjs/toolkit";
 
 
 function App() {

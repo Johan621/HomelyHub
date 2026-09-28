@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../../css/BookingDetails.css";
 import PropertyImg from "../propertyListing/PropertyImg";
 import { useParams } from "react-router-dom";

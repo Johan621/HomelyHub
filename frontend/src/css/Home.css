@@ -767,9 +767,6 @@ footer {
   background-image: url("/assets/image1.jpeg");
 }
 
-.destination-mumbai {
-  background-image: url("/assets/image2.jpeg");
-}
 
 .destination-manali {
   background-image: url("/assets/image3.jpeg");
@@ -817,4 +814,65 @@ footer {
   .destination-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+
+/* Functional destination buttons */
+
+.destination-card {
+  width: 100%;
+  border: none;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.destination-card span,
+.destination-card h3,
+.destination-card small {
+  position: relative;
+  z-index: 1;
+}
+
+.destination-card small {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.destination-card:hover small,
+.destination-card:focus-visible small {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+.destination-card:focus-visible {
+  outline: 3px solid #9ce8bb;
+  outline-offset: 4px;
+}
+
+/* Functional favorite button */
+
+.favorite-button {
+  z-index: 3;
+}
+
+.favorite-button.is-favorite {
+  color: #e54865;
+  background: #fff0f3;
+}
+
+.favorite-button.is-favorite .material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 600,
+    "GRAD" 0,
+    "opsz" 24;
 }

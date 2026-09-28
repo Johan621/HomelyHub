@@ -1,6 +1,5 @@
 import { userActions } from "./user-slice.js";
 import {axiosInstance} from "../../utils/axios.js";
-import axios from "axios";
 
 
 //signup
@@ -34,7 +33,7 @@ export const currentUser = () => async(dispatch)=>{
         dispatch(userActions.getCurrentUser(data.user));
         
         
-    }catch(error){
+    }catch{
         dispatch(userActions.getLogout(null));
     }
 }
