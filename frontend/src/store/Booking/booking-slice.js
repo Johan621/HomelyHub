@@ -7,34 +7,43 @@
 //updating the booking data when we receive it from the backend
 
 
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    bookings:[],
-    bookingDetails:{},
-    loading:false
-}
+  bookings: [],
+  bookingDetails: {},
+  loading: false,
+};
 
 const bookingSlice = createSlice({
-    name:"booking",
-    initialState,
-    reducers:{
-        setBookingRequest(state){
-            state.loading = true;
-        },
-        //stores the bookings received from the api 
-        setBookings(state,action){
-            state.bookings = action.payload;
-            state.loading = false
-        },
-        addBooking:(state,action)=>{
-            state.bookings.push(action.payload);
-        },
-        setBookingDetails:(state,action)=>{
-            state.bookingDetails = action.payload.bookings;
-        }
-    }
-})
+  name: "booking",
+  initialState,
+  reducers: {
+    setBookingRequest(state) {
+      state.loading = true;
+    },
 
-export const {setBookings, addBooking, setBookingDetails} = bookingSlice.actions;
+    setBookings(state, action) {
+      state.bookings = action.payload;
+      state.loading = false;
+    },
+
+    addBooking(state, action) {
+      state.bookings.push(action.payload);
+    },
+
+    setBookingDetails(state, action) {
+      state.bookingDetails = action.payload.bookings;
+      state.loading = false;
+    },
+  },
+});
+
+export const {
+  setBookingRequest,
+  setBookings,
+  addBooking,
+  setBookingDetails,
+} = bookingSlice.actions;
+
 export default bookingSlice;
